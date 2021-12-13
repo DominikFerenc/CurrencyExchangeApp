@@ -16,7 +16,7 @@ public class ApiClientImpl implements ApiClient {
     @Override
     public ApiResponseDTO.Rate getRate() {
         ResponseEntity<ApiResponseDTO> response;
-        Integer statusCode = null;
+        Integer statusCode;
         //"http://api.nbp.pl/api/exchangerates/rates/c/" + currency + "/today?format=json";
         final String endpointNBPPath = "http://api.nbp.pl/api/exchangerates/rates/c/usd/today?format=json";
         response = restTemplate.getForEntity(endpointNBPPath, ApiResponseDTO.class);
