@@ -1,0 +1,21 @@
+version: '3'
+services:
+  api:
+    build: ./
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/currencyexchange
+  db:
+    image: postgres
+    container_name: currencyExchangeDb
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=db
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - 5000:5432
+

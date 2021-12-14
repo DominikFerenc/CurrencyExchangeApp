@@ -2,16 +2,15 @@ package com.dominikferenc.currencyexchange.controller.impl;
 
 
 import com.dominikferenc.currencyexchange.controller.CurrencyExchangeController;
-import com.dominikferenc.currencyexchange.dto.ApiResponseDTO;
+import com.dominikferenc.currencyexchange.dto.ApiDTO;
 import com.dominikferenc.currencyexchange.model.Exchange;
 import com.dominikferenc.currencyexchange.repository.CurrencyExchangeRepository;
 import com.dominikferenc.currencyexchange.service.ApiClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.net.URI;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,8 +19,8 @@ public class CurrencyExchangeControllerImpl implements CurrencyExchangeControlle
     private final CurrencyExchangeRepository currencyExchangeRepository;
 
     @Override
-    public ResponseEntity<ApiResponseDTO.Rate> getAllRate() {
-        return new ResponseEntity<>(client.getRate(), HttpStatus.OK);
+    public ResponseEntity<ApiDTO.Rate> getAllRate() {
+        return new ResponseEntity( client.getRate(), HttpStatus.OK);
     }
 
     @Override
