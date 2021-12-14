@@ -1,7 +1,7 @@
 package com.dominikferenc.currencyexchange.service;
 
-import com.dominikferenc.currencyexchange.dto.ApiDTO;
+import com.dominikferenc.currencyexchange.dto.ApiResponseDTO;
 
 public interface ApiClient {
-    ApiDTO getRate();
+    ApiResponseDTO.Rate getRate();
 }
