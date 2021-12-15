@@ -13,15 +13,16 @@ import java.util.List;
 @Setter
 public class ApiResponseDTO {
     private String table;
-    private String currency;
-    private String code;
+    private String no;
+    private LocalDate effectiveDate;
     private List<Rate> rates;
 
     @Data
     public static final class Rate {
-        private String no;
-        private LocalDate effectiveDate;
-        private BigDecimal bid;
-        private BigDecimal ask;
+        private String currency;
+        private String code;
+        private BigDecimal mid;
+        //private BigDecimal bid;
+        //private BigDecimal ask;
     }
 }

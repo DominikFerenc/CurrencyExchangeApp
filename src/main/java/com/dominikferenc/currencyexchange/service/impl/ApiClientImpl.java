@@ -19,10 +19,12 @@ public class ApiClientImpl implements ApiClient {
         ResponseEntity<ApiResponseDTO> response;
         Exchange exchange = new Exchange();
         Integer statusCode;
-        final String endpointNBPPath = "http://api.nbp.pl/api/exchangerates/rates/c/usd/today?format=json";
+        final String endpointNBPPath = "http://api.nbp.pl/api/exchangerates/rates/a/usd/today?format=json";
+                //"http://api.nbp.pl/api/exchangerates/rates/a/usd/today?format=json";
         response = restTemplate.getForEntity(endpointNBPPath, ApiResponseDTO.class);
         statusCode = response.getStatusCodeValue();
         var rates = response.getBody();
         return rates.getRates().stream().findFirst().orElseThrow();
+                //Arrays.stream(rates).findAny().get();
     }
 }

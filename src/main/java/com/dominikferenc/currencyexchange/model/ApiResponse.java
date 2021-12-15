@@ -22,10 +22,9 @@ public class ApiResponse {
 
     private String table;
     private String no;
-    private LocalDate tradingDate;
     private LocalDate effectiveDate;
     @OneToMany
-    private List<Rate> rates;
+    public List<Rate> rates;
 
 
     @Entity
@@ -34,7 +33,7 @@ public class ApiResponse {
         private int id;
         private String currency;
         private String code;
-        private BigDecimal bid;
-        private BigDecimal ask;
+        private BigDecimal mid;
+
     }
 }

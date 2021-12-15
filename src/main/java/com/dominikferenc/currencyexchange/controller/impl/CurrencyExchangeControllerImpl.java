@@ -24,7 +24,7 @@ public class CurrencyExchangeControllerImpl implements CurrencyExchangeControlle
 
     @Override
     public ResponseEntity<ApiResponseDTO.Rate> getAllRate() {
-        return new ResponseEntity<>(client.getRate(), HttpStatus.OK);
+        return new ResponseEntity<>( client.getRate(), HttpStatus.OK);
     }
 
     @Override
