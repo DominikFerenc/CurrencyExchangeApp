@@ -2,6 +2,7 @@ package com.dominikferenc.currencyexchange.controller.impl;
 
 
 import com.dominikferenc.currencyexchange.controller.CurrencyExchangeController;
+import com.dominikferenc.currencyexchange.dto.ApiAllRatesResponseDTO;
 import com.dominikferenc.currencyexchange.dto.ApiResponseDTO;
 import com.dominikferenc.currencyexchange.enums.Current;
 import com.dominikferenc.currencyexchange.model.Exchange;
@@ -23,8 +24,13 @@ public class CurrencyExchangeControllerImpl implements CurrencyExchangeControlle
 
 
     @Override
-    public ResponseEntity<ApiResponseDTO.Rate> getAllRate() {
-        return new ResponseEntity<>( client.getRate(), HttpStatus.OK);
+    public ResponseEntity<ApiResponseDTO.Rate> getRate() {
+        return new ResponseEntity(client.getRate(), HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<ApiAllRatesResponseDTO.Rate> getAllRate() {
+        return new ResponseEntity(client.getAllRates(), HttpStatus.OK);
     }
 
     @Override

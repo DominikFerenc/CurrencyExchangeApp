@@ -21,12 +21,12 @@ public class Exchange {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Size(max = 3, min = 3)
-    private String currency;
+    private BigDecimal currency;
     private BigDecimal amount;
     @Size(max = 3, min = 3)
-    private String fromCurrency;
+    private BigDecimal fromCurrency;
     @Size(max = 3, min = 3)
-    private String toCurrency;
+    private BigDecimal toCurrency;
     private BigDecimal amountAfterExchange;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
