@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/testdbcurrencyexchangedb
+    url: jdbc:postgresql://db:5432/currencyexchangedb
     driver-class-name: org.postgresql.Driver
     hikari:
       username: postgres
@@ -9,4 +9,8 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQL82Dialect
-        ddl-auto: update
+        ddl-auto: create
+    generate-ddl: true
+    show-sql: true
+  main:
+    banner-mode: off

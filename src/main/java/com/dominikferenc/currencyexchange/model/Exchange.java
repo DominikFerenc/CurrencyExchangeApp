@@ -27,7 +27,6 @@ public class Exchange {
     private BigDecimal fromCurrency;
     @Size(max = 3, min = 3)
     private BigDecimal toCurrency;
-    private BigDecimal amountAfterExchange;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDateTime dateTime;
