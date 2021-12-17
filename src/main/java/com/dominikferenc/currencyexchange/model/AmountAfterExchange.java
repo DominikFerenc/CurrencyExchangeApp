@@ -12,13 +12,13 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Amount {
+public class AmountAfterExchange {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private BigDecimal amountAfterExchange;
 
-    public Amount(BigDecimal amountAfterExchange) {
+    public AmountAfterExchange(BigDecimal amountAfterExchange) {
         this.amountAfterExchange = amountAfterExchange;
     }
 }
