@@ -1,6 +1,5 @@
 package com.dominikferenc.currencyexchange.service.impl;
 
-import com.dominikferenc.currencyexchange.model.AmountAfterExchange;
 import com.dominikferenc.currencyexchange.model.Exchange;
 import com.dominikferenc.currencyexchange.service.ExchangeService;
 import lombok.RequiredArgsConstructor;
@@ -16,13 +15,14 @@ public class ExchangeServiceImpl implements ExchangeService {
     private final BigDecimal currency;
     private final BigDecimal fromCurrency;
     private final BigDecimal toCurrency;*/
-    private final AmountAfterExchange amountAfterExchange;
+    //AmountAfterExchange amountAfterExchange;
 
 
     @Override
     public Exchange currencyExchange() {
         BigDecimal amount = BigDecimal.valueOf(123);
-        new AmountAfterExchange(amount);
+        //new AmountAfterExchange(amount);
+        //new AmountAfterExchange(amount);
         return null;
     }
 }

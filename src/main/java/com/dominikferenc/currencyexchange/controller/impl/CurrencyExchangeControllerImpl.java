@@ -4,6 +4,7 @@ package com.dominikferenc.currencyexchange.controller.impl;
 import com.dominikferenc.currencyexchange.controller.CurrencyExchangeController;
 import com.dominikferenc.currencyexchange.dto.ApiAllRatesResponseDTO;
 import com.dominikferenc.currencyexchange.dto.ApiResponseDTO;
+import com.dominikferenc.currencyexchange.dto.ExchangeRateDTO;
 import com.dominikferenc.currencyexchange.enums.Current;
 import com.dominikferenc.currencyexchange.model.Exchange;
 import com.dominikferenc.currencyexchange.repository.CurrencyExchangeRepository;
@@ -34,12 +35,15 @@ public class CurrencyExchangeControllerImpl implements CurrencyExchangeControlle
     }
 
     @Override
-    public ResponseEntity<Exchange> saveCurrency(Exchange toSave) {
-        currencyExchangeRepository.save(toSave);
-        var currency = toSave;
-        System.out.println(currency.getCurrency());
-
-        return new ResponseEntity<>(currency, HttpStatus.CREATED);
+    public ResponseEntity<Exchange> saveCurrency(ExchangeRateDTO toSave) {
+        var exchange = new Exchange();
+        //serwis
+        exchange.setFromCurrency(toSave.getFromCurrency());
+        exchange.setToCurrency(toSave.getToCurrency());
+        exchange.setAmount(toSave.getAmount());
+        currencyExchangeRepository.save(exchange);
+        //przeliczenia zwrócic
+        return new ResponseEntity<>(exchange, HttpStatus.CREATED);
     }
 
     @Override

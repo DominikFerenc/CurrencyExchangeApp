@@ -6,7 +6,6 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -15,19 +14,14 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-
 public class Exchange {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Size(max = 3, min = 3)
-    private BigDecimal currency;
     private BigDecimal amount;
-    @Size(max = 3, min = 3)
-    private BigDecimal fromCurrency;
-    @Size(max = 3, min = 3)
-    private BigDecimal toCurrency;
-
+    private String fromCurrency;
+    private String toCurrency;
+    private BigDecimal amountAfterExchange;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDateTime dateTime;
 
