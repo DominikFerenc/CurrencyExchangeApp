@@ -3,15 +3,16 @@ package com.dominikferenc.currencyexchange.controller.impl;
 
 import com.dominikferenc.currencyexchange.controller.CurrencyExchangeController;
 import com.dominikferenc.currencyexchange.dto.ApiAllRatesResponseDTO;
-import com.dominikferenc.currencyexchange.dto.ApiResponseDTO;
 import com.dominikferenc.currencyexchange.dto.ExchangeRateDTO;
 import com.dominikferenc.currencyexchange.enums.Current;
 import com.dominikferenc.currencyexchange.model.Exchange;
 import com.dominikferenc.currencyexchange.repository.CurrencyExchangeRepository;
 import com.dominikferenc.currencyexchange.service.ApiClient;
+import com.dominikferenc.currencyexchange.service.ExchangeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
@@ -22,11 +23,13 @@ import java.util.List;
 public class CurrencyExchangeControllerImpl implements CurrencyExchangeController {
     private final ApiClient client;
     private final CurrencyExchangeRepository currencyExchangeRepository;
-
+    private final ExchangeService exchangeService;
 
     @Override
-    public ResponseEntity<ApiResponseDTO.Rate> getRate() {
-        return new ResponseEntity(client.getRate(), HttpStatus.OK);
+    public ResponseEntity<?> getRate() {
+
+
+        return new ResponseEntity("lol", HttpStatus.OK);
     }
 
     @Override
@@ -35,13 +38,10 @@ public class CurrencyExchangeControllerImpl implements CurrencyExchangeControlle
     }
 
     @Override
-    public ResponseEntity<Exchange> saveCurrency(ExchangeRateDTO toSave) {
+    public ResponseEntity<Exchange> saveCurrency(@RequestBody ExchangeRateDTO toSave) {
+        exchangeService.currencyExchange(toSave);
         var exchange = new Exchange();
-        //serwis
-        exchange.setFromCurrency(toSave.getFromCurrency());
-        exchange.setToCurrency(toSave.getToCurrency());
-        exchange.setAmount(toSave.getAmount());
-        currencyExchangeRepository.save(exchange);
+
         //przeliczenia zwrócic
         return new ResponseEntity<>(exchange, HttpStatus.CREATED);
     }

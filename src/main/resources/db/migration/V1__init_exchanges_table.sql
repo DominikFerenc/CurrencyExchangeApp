@@ -1,10 +1,11 @@
+
 drop table if exists exchanges;
-create table exchanges
+create table exchange
 (
     id      SERIAL PRIMARY KEY,
-    amount NUMERIC NOT NULL,
-    from_currency VARCHAR(3) NOT NULL,
-    to_currency VARCHAR(3) NOT NULL,
-    amount_after_exchange NUMERIC NOT NULL,
-    date_time TIMESTAMP NOT NULL
+    amount NUMERIC,
+    from_currency VARCHAR(3),
+    to_currency VARCHAR(3),
+    amount_after_exchange NUMERIC,
+    date_time TIMESTAMP
 );

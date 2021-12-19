@@ -1,7 +1,6 @@
 package com.dominikferenc.currencyexchange.controller;
 
 import com.dominikferenc.currencyexchange.dto.ApiAllRatesResponseDTO;
-import com.dominikferenc.currencyexchange.dto.ApiResponseDTO;
 import com.dominikferenc.currencyexchange.dto.ExchangeRateDTO;
 import com.dominikferenc.currencyexchange.enums.Current;
 import com.dominikferenc.currencyexchange.model.Exchange;
@@ -16,13 +15,15 @@ import java.util.List;
 @RequestMapping("/api/current")
 public interface CurrencyExchangeController {
     @GetMapping
-    ResponseEntity<ApiResponseDTO.Rate> getRate();
+    ResponseEntity<?> getRate();
 
     @GetMapping("/rates")
     ResponseEntity<ApiAllRatesResponseDTO.Rate> getAllRate();
 
     @PostMapping("")
     ResponseEntity<Exchange> saveCurrency(@RequestBody ExchangeRateDTO toSave);
+
+
 
     @GetMapping(value = "/currency")
     ResponseEntity<List<Current>> getAllCurrency();

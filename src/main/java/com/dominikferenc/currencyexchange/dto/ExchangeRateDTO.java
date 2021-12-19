@@ -14,6 +14,5 @@ public class ExchangeRateDTO {
     private BigDecimal amount;
     private String fromCurrency;
     private String toCurrency;
-    private String currency;
     private BigDecimal amountAfterExchange;
 }

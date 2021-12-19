@@ -1,7 +1,7 @@
 package com.dominikferenc.currencyexchange.service;
 
-import com.dominikferenc.currencyexchange.model.Exchange;
+import com.dominikferenc.currencyexchange.dto.ExchangeRateDTO;
 
 public interface ExchangeService {
-    Exchange currencyExchange();
+    void currencyExchange(ExchangeRateDTO exchangeRateDto);
 }
