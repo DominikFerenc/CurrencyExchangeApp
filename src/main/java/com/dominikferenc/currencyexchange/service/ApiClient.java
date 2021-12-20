@@ -6,7 +6,5 @@ import com.dominikferenc.currencyexchange.dto.ExchangeRateDTO;
 
 public interface ApiClient {
     ApiResponseDTO.Rate getRate(String currency);
-
     ApiAllRatesResponseDTO getAllRates();
-
 }

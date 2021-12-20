@@ -24,5 +24,4 @@ public class Exchange {
     private BigDecimal amountAfterExchange;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDateTime dateTime;
-
 }

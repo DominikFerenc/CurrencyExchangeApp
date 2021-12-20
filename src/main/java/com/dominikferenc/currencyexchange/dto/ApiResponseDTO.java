@@ -19,11 +19,8 @@ public class ApiResponseDTO {
 
     @Data
     public static final class Rate {
-
         private String no;
         private LocalDate effectiveDate;
-
         private BigDecimal mid;
-
     }
 }

@@ -33,8 +33,6 @@ public class SwaggerConfig {
                 .contact(new Contact("Dominik Ferenc",
                         "https://github.com/DominikFerenc",
                         "dominikferenc1995@gmail.com"))
-                .license("License name here")
-                .licenseUrl("URL to license")
                 .version("1.0.1")
                 .build();
     }
