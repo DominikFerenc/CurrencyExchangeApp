@@ -29,14 +29,14 @@ public class ExchangeServiceImpl implements ExchangeService {
 
         BigDecimal amountAfterexchannge;
 
-        if (fromCurrency != "PLN" && toCurrnecy != "PLN") {
+        if (fromCurrency.equals("PLN") && toCurrnecy.equals("PLN")) {
             var rateFromCurrency = apiClient.getRate(fromCurrency);
             var rateToCurrency = apiClient.getRate(toCurrnecy);
             var toCurrencyPln = amount.multiply(rateFromCurrency.getMid());
             amountAfterexchannge = toCurrencyPln.divide(rateToCurrency.getMid(), 2, RoundingMode.HALF_UP);
 
         }
-        else if (fromCurrency == "PLN") {
+        else if (fromCurrency.equals("PLN")) {
             var rateToCurrency = apiClient.getRate(toCurrnecy);
             amountAfterexchannge = amount.divide(rateToCurrency.getMid(), 2, RoundingMode.HALF_UP);
 
